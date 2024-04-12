@@ -71,7 +71,7 @@ class DBHelper{
                 (name as NSString).utf8String,
                 -1,
                 nil)
-           
+            
             sqlite3_bind_text(insertStatement,
                               2,
                               (city as NSString).utf8String,
