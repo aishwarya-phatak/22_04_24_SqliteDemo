@@ -35,7 +35,7 @@ class DBHelper{
     }
     
     func createTable(){
-        let createQueryString = "CREATE TABLE Person(Name Text,City Text);"
+        let createQueryString = "CREATE TABLE IF NOT EXISTS Person(Name Text,City Text);"
         var createStatement : OpaquePointer?
         if sqlite3_prepare_v2(
             db,
@@ -89,12 +89,41 @@ class DBHelper{
         sqlite3_finalize(insertStatement)
     }
     
+    func retrivePersonRecords()->[Person]{
+        let retriveQueryString = "SELECT * FROM Person;"
+        var retriveStatement : OpaquePointer? = nil
+        var personArray : [Person] = []
+        if sqlite3_prepare_v2(
+            db,
+            retriveQueryString,
+            -1,
+            &retriveStatement,
+            nil) == SQLITE_OK{
+            print("prepared statement successful")
+            while sqlite3_step(retriveStatement) == SQLITE_ROW{
+                let name = String(describing: String(cString: sqlite3_column_text(retriveStatement, 0)))
+                let city = String(describing: String(cString: sqlite3_column_text(retriveStatement, 1)))
+                personArray.append(Person(name: name, city: city))
+            }
+        } else {
+            print("prepared statement failed")
+        }
+        sqlite3_finalize(retriveStatement)
+        return personArray
+    }
+    
     func deletePersonRecords(name : String){
-        let deleteQueryString = "DELETE FROM Person where name = ?;"
+        let deleteQueryString = "DELETE FROM Person where Name = ?;"
         var deleteStatement : OpaquePointer?
         if sqlite3_prepare_v2(db, deleteQueryString, -1, &deleteStatement, nil) == SQLITE_OK{
-            print("Delete statement not prepared")
-            sqlite3_column_text(deleteStatement, 1)
+            print("Delete statement prepared")
+            
+            sqlite3_bind_text(
+                deleteStatement,
+                1,
+                name,
+                -1,
+                nil)
             
             if sqlite3_step(deleteStatement) == SQLITE_DONE{
                 print("Delete executed")
@@ -102,7 +131,7 @@ class DBHelper{
                 print("Delete not executed")
             }
         } else {
-            print("Delete statement prepared")
+            print("Delete statement not prepared")
         }
     }
 }

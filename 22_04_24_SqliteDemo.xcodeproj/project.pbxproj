@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		686D47882BC92BD300110E95 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D47872BC92BD300110E95 /* Person.swift */; };
 		686F5CBE2BC69157004520D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686F5CBD2BC69157004520D6 /* AppDelegate.swift */; };
 		686F5CC02BC69157004520D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686F5CBF2BC69157004520D6 /* SceneDelegate.swift */; };
 		686F5CC22BC69157004520D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686F5CC12BC69157004520D6 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		686D47872BC92BD300110E95 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		686F5CBA2BC69157004520D6 /* 22_04_24_SqliteDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 22_04_24_SqliteDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		686F5CBD2BC69157004520D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		686F5CBF2BC69157004520D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				686F5CC82BC69158004520D6 /* LaunchScreen.storyboard */,
 				686F5CCB2BC69158004520D6 /* Info.plist */,
 				686F5CD12BC6917F004520D6 /* DBHelper.swift */,
+				686D47872BC92BD300110E95 /* Person.swift */,
 			);
 			path = 22_04_24_SqliteDemo;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				686D47882BC92BD300110E95 /* Person.swift in Sources */,
 				686F5CC22BC69157004520D6 /* ViewController.swift in Sources */,
 				686F5CBE2BC69157004520D6 /* AppDelegate.swift in Sources */,
 				686F5CC02BC69157004520D6 /* SceneDelegate.swift in Sources */,
